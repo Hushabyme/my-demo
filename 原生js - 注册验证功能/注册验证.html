@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码</title>
+    <style>
+        input {
+            width: 150px;
+            height: 20px;
+        }
+        span {
+            display: inline-block;
+            color: red;
+            font: 500 13px/1.5 '幼圆';
+            padding-left: 10px;
+        }
+        #code {
+            width: 50px;
+            height: 30px;
+            font: 600 16px/1.5 '幼圆';
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<form action="">
+    <label>用户名： <input type="text" id="username" placeholder="请输入用户名" maxlength="20">
+        <span id="tip1"></span>
+    </label>
+    <br>
+    <br>
+    <label>密码： <input type="password" id="password" placeholder="请输入密码" maxlength="20">
+        <span id="tip2"></span>
+    </label>
+    <br>
+    <br>
+    <label>请输入验证码：<input type="text" id="checkCode"></label>
+    <label><input type="text" id="code" readonly="readonly"></label>
+    <span id="tip3"></span>
+    <br>
+    <br>
+    <button id="submit">注册</button>
+
+</form>
+
+<script>
+    var user = document.getElementById('username');
+    var tip1 = document.getElementById('tip1');
+    var password = document.getElementById('password');
+    var tip2 = document.getElementById('tip2');
+    var code = document.getElementById('code');
+    var checkCode = document.getElementById('checkCode');
+    var tip3 = document.getElementById('tip3');
+    var submit = document.getElementById('submit');
+
+    submit.onmouseover = function () {
+        if (user.value === '' && password.value === '' && checkCode.value === '') {
+            tip1.innerHTML = '请输入用户名！';
+            tip2.innerHTML = '请输入密码！';
+            tip3.innerHTML = '请输入验证码！';
+        }
+
+    };
+    // 用户名验证
+    user.onblur = function () {
+        var reg = /^[0-9]/;
+        if ( user.value.length <= 6 ) {
+            tip1.innerHTML = '* 用户名不能少于6位';
+        } else if ( reg.test(user.value) ) {
+            tip1.innerHTML = '* 用户名不能以数字开头';
+        } else {
+            tip1.innerHTML = '√';
+            tip1.style.color = 'black';
+            tip1.style.fontWeight = 'bold';
+        }
+        return true;
+    };
+
+    // 密码验证
+    password.onblur = function () {
+        if ( password.value.length === 0 ) {
+            tip2.innerHTML = '* 密码不能为空';
+        } else {
+            tip2.innerHTML = '√';
+            tip2.style.color = 'black';
+            tip2.style.fontWeight = 'bold';
+        }
+    };
+
+    // 验证码功能
+    window.onload = code.onclick = function () {
+        createCode();
+    };
+    checkCode.onblur = function () {
+        validate ();
+    };
+
+    var Code ;
+    function createCode(){
+        Code = [];
+        var checkCode = document.getElementById('code');
+        checkCode.value = '';
+
+        var selectChar = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+        for (var i = 0; i < 4; i++) {
+            var charIndex = Math.floor(Math.random() * 36);
+            Code += selectChar[charIndex];
+        }
+        if (Code.length !== 4) {
+            createCode();
+        }
+        checkCode.value = Code;
+    }
+
+    function validate () {
+        var inputCode = document.getElementById('checkCode').value.toUpperCase();
+
+        if(inputCode.length === 0) {
+            tip3.innerHTML = '* 请输入验证码';
+            return false;
+        }
+        else if(inputCode !== Code ){
+            tip3.innerHTML = '* 验证码错误！请重新输入';
+            createCode();
+            return false;
+        } else {
+            tip3.innerHTML = '√';
+            tip3.style.color = 'black';
+            tip3.style.fontWeight = 'bold';
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

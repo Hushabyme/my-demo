@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+  <script src="jquery-3.1.1.js"></script>
+  <style>
+      div {
+        border-radius: 8px;
+        width: 300px;
+        height: 200px;
+        border: 5px solid #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 100px auto;
+        position: relative;
+        opacity: 0.5;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+      }
+    div input {
+      margin-top: 15px;
+    }
+    div span {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 12px;
+      background: pink;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="widget" style="display: none">
+  <span><b>&times;</b></span>
+  <form action="">
+    <label>账号 <input type="text"></label>
+    <br>
+    <label>密码 <input type="text"></label>
+  </form>
+</div>
+
+<!--<button type="button">请登录！</button>-->
+
+  <script>
+    $(function () {
+        const $widget = $('.widget');
+        $widget.slideDown(2000, function () {
+          $widget.fadeTo(800, 1, function () {
+            alert('欢迎您的到来！');
+          })
+        });
+      })
+
+  </script>
+
+</body>
+</html>

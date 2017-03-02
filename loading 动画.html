@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>loading动画</title>
+  <style>
+    .wrapper {
+      width: 500px;
+      height: 500px;
+      /*border: 1px solid #ccc;*/
+      margin: 50px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading {
+      position: relative;
+    }
+
+    .loading i {
+      display: block;
+      height: 12px;
+      width: 12px;
+      background: pink;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    /*动画*/
+    @keyframes loading {
+      50% {
+        transform: scale(0.5);
+        opacity: 0.3;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .loading i:nth-child(1) {
+      top: 25px;
+      left: 0;
+      animation: loading 1s ease infinite;
+    }
+
+    .loading i:nth-child(2) {
+      top: 17px;
+      left: 17px;
+      animation: loading 1s ease -0.12s infinite;
+    }
+
+    .loading i:nth-child(3) {
+      top: 0;
+      left: 25px;
+      animation: loading 1s ease -0.24s infinite;
+    }
+
+    .loading i:nth-child(4) {
+      top: -17px;
+      left: 17px;
+      animation: loading 1s ease -0.36s infinite;
+    }
+
+    .loading i:nth-child(5) {
+      top: -25px;
+      left: 0;
+      animation: loading 1s ease -0.48s infinite;
+    }
+
+    .loading i:nth-child(6) {
+      top: -17px;
+      left: -17px;
+      animation: loading 1s ease -0.6s infinite;
+    }
+
+    .loading i:nth-child(7) {
+      top: 0;
+      left: -25px;
+      animation: loading 1s ease -0.72s infinite;
+    }
+
+    .loading i:nth-child(8) {
+      top: 17px;
+      left: -17px;
+      animation: loading 1s ease -0.84s infinite;
+    }
+
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="loading">
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+  </div>
+</div>
+
+
+</body>
+</html>

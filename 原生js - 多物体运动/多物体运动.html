@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container ul li
+        {
+            width: 200px;
+            height: 100px;
+            margin-top:50px;
+            background-color: yellow;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+    <script>
+        window.onload = function () {
+            const lis = document.getElementsByTagName('li');
+            for (let i = 0,len = lis.length; i < len; i++) {
+                this.timer = null;
+                lis[i].onmouseover = function () {
+                    startMove(this,300);
+                };
+                lis[i].onmouseout = function () {
+                    startMove(this,200)
+                }
+            }
+
+            function startMove ( elem , target ) {
+                clearInterval(elem.timer);
+                elem.timer = setInterval(function () {
+                    let speed = (target - elem.offsetWidth) / 5;
+                    speed = speed > 0
+                            ? Math.ceil(speed)
+                            : Math.floor(speed);
+                    if ( elem.offsetWidth === target ) {
+                        clearInterval(elem.timer);
+                    } else {
+                        elem.style.width = elem.offsetWidth + speed + 'px';
+                    }
+                },30);
+
+            }
+        }
+    </script>
+</body>
+</html>

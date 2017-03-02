@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>使用css3选择器</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .toggle {
+      width: 80px;
+      height: 26px;
+      background: #333;
+      margin: 40px auto;
+      position: relative;
+      border-radius: 50px;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,0.5),0 1px 1px rgba(255,255,255,0.2);
+    }
+    .toggle::after {
+      content: 'OFF';
+      color: #fff;
+      position: absolute;
+      right: 10px;
+      font: bold 12px/26px Arial,sans-serif;
+      text-shadow: 1px 1px 0 rgba(255,255,255,.15);
+      z-index: 0;
+    }
+    .toggle::before {
+      content: 'ON';
+      color: #f66;
+      position: absolute;
+      left: 10px;
+      font: bold 12px/26px Arial,sans-serif;
+      z-index: 0;
+    }
+    .toggle label {
+      display: block;
+      width: 34px;
+      height: 20px;
+      cursor: pointer;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      background: #fcfff4;
+      background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+      border-radius: 50px;
+      transition: all .4s ease;
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+    }
+    .toggle input[type= checkbox] {
+      visibility: hidden;
+    }
+    .toggle input:checked + label {
+      left: 43px;
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle">
+    <input type="checkbox" checked id="t">
+    <label for="t"></label>
+  </div>
+</body>
+</html>

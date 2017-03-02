@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选</title>
+</head>
+<body>
+    <label ><input id="all" type="checkbox">全选</label>
+    <hr>
+    <input type="checkbox">魅族<br>
+    <input type="checkbox">小米<br>
+    <input type="checkbox">华为<br>
+    <input type="checkbox">一加<br>
+    <input type="checkbox">苹果<br>
+    <input type="checkbox">三星<br>
+    <input type="checkbox">努比亚<br>
+    <input type="checkbox">OPPO<br>
+    <input type="checkbox">Vivo<br>
+
+
+    <script>
+        window.onload = function () {
+            var all = document.getElementById('all');
+
+            all.onclick = function () {
+                var boxs = document.getElementsByTagName('input');
+
+                for(var i = 0 ; i < boxs.length ; i++){
+                    boxs[i].checked = all.checked;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

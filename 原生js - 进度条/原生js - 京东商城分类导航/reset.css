@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #fff none repeat scroll 0 0;
+    color: #666;
+    font: 12px/150% Arial,Verdana,"宋体";
+}
+a {
+    color: #666;
+    text-decoration: none;
+    font-family: "microsoft yahei";
+}
+a:hover {
+    color: #c81623;
+}
+h3 {
+    font-family: "microsoft yahei";
+}

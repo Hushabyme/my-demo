@@ -1,0 +1,17 @@
+.box {
+    width: 500px;
+    height: 24px;
+    border: 1px solid #8B8989;
+    margin: 0 auto;
+    margin-top: 300px;
+}
+#bar {
+    display: block;
+    float: left;
+    background: #FFC1C1;
+    height: 100%;
+    text-align: center;
+    line-height: 24px;
+    color: #000;
+    font-size: 12px;
+}

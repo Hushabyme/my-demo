@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字体放大缩小demo</title>
+</head>
+<body>
+    <p id="p1" style="font-size: 15px;">其实我们共同的问题是，未来是什么样子，我们该怎么办？</p>
+    <input id="btn1" type="button" value="+">
+    <input id="btn2" type="button" value="-">
+
+    <script>
+        window.onload = function () {
+            var p1 = document.getElementById('p1');
+            var btn1 = document.getElementById('btn1');
+            var btn2 = document.getElementById('btn2');
+
+            var num = 15;
+            btn1.onclick = function () {
+                num++;
+                p1.style.fontSize = num + 'px';
+
+            };
+
+            btn2.onclick = function () {
+                num--;
+                p1.style.fontSize = num + 'px';
+
+            }
+        }
+    </script>
+</body>
+</html>

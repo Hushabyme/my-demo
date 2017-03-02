@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出层效果</title>
+    <style>
+        #wrap {
+            background: #000;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.4;
+            filter: alpha(opacity = 40);
+            z-index: 100;
+            display: none;
+        }
+        #box {
+            width: 400px;
+            height: 300px;
+            background: pink;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            display: none;
+            z-index: 101;
+        }
+        #box h3 {
+            text-align: center;
+            line-height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <button id="pop">登录</button>
+    <div id="wrap"></div>
+    <div id="box">
+        <h3>我是弹出层(づ｡◕‿‿◕｡)づ</h3>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var pop = document.getElementById('pop'),
+                wrap = document.getElementById('wrap'),
+                box = document.getElementById('box');
+
+            pop.onclick = function () {
+                wrap.style.display = 'block';
+                box.style.display = 'block';
+            };
+
+            wrap.onclick = box.onclick = function () {
+                wrap.style.display = 'none';
+                box.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

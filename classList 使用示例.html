@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>classList usage example</title>
+  <style>
+    * {margin: 0; padding: 0;}
+    #bar { height: 100px; width: 20px; position: fixed; top: calc(50% - 100px); right: 50px;}
+    #bar ul > li { height: 20px; width: 20px; border-radius: 50%; background: #ccc; list-style: none; display: inline-block; margin-top: 10px;}
+    #bar li a { height: 20px; width: 20px; border-radius: 50%; display: inline-block; line-height: 20px; text-align: center;}
+    .active {background: orange;}
+  </style>
+</head>
+<body>
+
+<section id="bar-1" style="width: 100vw; height: 100vh; background: pink"></section>
+<section id="bar-2" style="width: 100vw; height: 100vh; background: red"></section>
+<section id="bar-3" style="width: 100vw; height: 100vh; background: dodgerblue"></section>
+<section id="bar-4" style="width: 100vw; height: 100vh; background: purple"></section>
+
+<div id="bar">
+  <ul>
+    <li><a href="#bar-1" class="active"></a></li>
+    <li><a href="#bar-2"></a></li>
+    <li><a href="#bar-3"></a></li>
+    <li><a href="#bar-4"></a></li>
+  </ul>
+</div>
+
+<script>
+
+
+
+  (function tab() {
+    const a = document.getElementsByTagName('a');
+    const bar = document.getElementById('bar');
+
+    bar.addEventListener('click',function (e) {
+      const active = document.querySelector('.active');
+
+      if (active) {
+        active.classList.toggle('active');
+      }
+
+      e.target.classList.toggle('active');
+    });
+
+    return tab;
+  }());
+
+
+
+</script>
+
+</body>
+</html>

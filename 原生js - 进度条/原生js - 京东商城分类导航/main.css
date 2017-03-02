@@ -1,0 +1,64 @@
+.box {
+    position: absolute;
+    top: 200px;
+    left: 300px;
+}
+.dt a {
+    font-weight: 400;
+    font-size: 15px;
+    background: #b1191a;
+    color: #ffffff;
+    display: block;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 10px;
+    width: 190px;
+}
+.dd {
+    background: #c81623;
+    height: 466px;
+}
+.dd .dd-inner .item {
+    border-left: 1px solid #b61d1d;
+    color: #fff;
+    height: 31px;
+    position: relative;
+    z-index: 1;
+}
+.dd .dd-inner .item a {
+    color: #fff;
+}
+.dd .dd-inner h3 {
+    font-size: 14px;
+    font-weight: 400;
+    height: 31px;
+    line-height: 31px;
+    padding: 0 10px;
+    position: absolute;
+    z-index: 2;
+}
+.dd .dd-inner i {
+    font: 400 9px/14px consolas;
+    height: 14px;
+    position: absolute;
+    right: 14px;
+    top: 9px;
+    width: 4px;
+    z-index: 1;
+}
+.dd .dd-inner .item:hover {
+    background: #f7f7f7;
+    color: #b61d1d;
+}
+.dd .dd-inner a:hover  {
+    color: #b61d1d;
+}
+.dd .dd-inner .item i:hover {
+    background: #f7f7f7;
+    height: 31px;
+    left: 205px;
+    line-height: 31px;
+    overflow: hidden;
+    top: 0;
+    width: 14px;
+}

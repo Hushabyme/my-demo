@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab原理2</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="选项1" style="background: pink;">
+    <input type="button" value="选项2">
+    <input type="button" value="选项3">
+    <div class="box" style="display: block;">内容一</div>
+    <div class="box">内容二</div>
+    <div class="box">内容三</div>
+
+    <script>
+        window.onload = function() {
+            var inputs = document.querySelectorAll('input');
+            var divs = document.querySelectorAll('div');
+            
+            for ( var i = 0; i < inputs.length; i++ ) {
+
+                inputs[i].index = i;
+
+                inputs[i].onclick = function () {
+                    for ( var i = 0; i < inputs.length; i++) {
+                        inputs[i].style.background = '';
+                        divs[i].style.display = 'none';
+                    }
+
+                    this.style.background = 'pink';
+                    divs[this.index].style.display = 'block';
+                }
+            }
+
+
+        }
+    </script>
+</body>
+</html>

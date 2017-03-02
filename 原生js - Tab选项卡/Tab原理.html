@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab原理</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="选项1" style="background: pink;">
+    <input type="button" value="选项2">
+    <input type="button" value="选项3">
+    <div class="box" style="display: block;">内容一</div>
+    <div class="box">内容二</div>
+    <div class="box">内容三</div>
+
+    <script>
+        window.onload = function() {
+            var inputs = document.querySelectorAll('input');
+            var divs = document.querySelectorAll('div');
+            var last = inputs[0];
+
+//            console.dir(inputs);
+//            console.dir(divs);
+
+            for ( let i = 0; i < inputs.length; i++ ) {
+
+                inputs[ i ].index = i;  // index为自定义属性
+                inputs[ i ].onclick = function () {
+                    // 去掉上一个点击对象的背景色
+                    last.style.background = '';
+                    // 上一个对应的div，隐藏它
+                    // 如果在这里能找到点击按钮的下标值，就能找到它对应的div
+                    divs[ last.index ].style.display = 'none';
+                    // 用this指向当前的按钮
+                    this.style.background = 'pink';
+                    divs[ this.index ].style.display = 'block';
+                    // 更新last，将last变为当前的input
+                    last = this;
+                };
+
+            }
+        }
+    </script>
+</body>
+</html>
